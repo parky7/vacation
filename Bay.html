@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/jpeg" href="leaguepic.jpeg" />
+<title>Dream Vacation</title>
+<link rel="stylesheet" type="text/css" href="vacation.css">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Handlee|Oswald">
+<style>
+#top {
+width: 75%;
+Height: 90%;
+margin-left: auto;
+margin-right:auto;
+margin-top: 20px;
+margin bottom: auto;
+background-color: #1f71f2;
+padding: 1px 20px;
+font-size: 20px;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a class="active" href="Bay.html">Hanalei Bay</a></li>
+  <li><a href="Peros.html">Peros Banhos</a></li>
+  <li><a href="Redwoods.html">Balch Park</a></li>
+  <li><a href="Moorea.html">Moorea</a></li>
+  <li style="float:right"><a href="Bibliography.html">Bibliography</a></li>
+</ul>
+<h1>Dream Vacation</h1>
+
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+//latitude & longitude of where the map is centered
+//how zoomed in the map is
+//mapProp is a dictionary similar to how your css styles worked
+//west and south have negative values for latitude & longitude
+var mapCenter = new google.maps.LatLng(22.2103317,-159.5066286);
+var mapProp= {
+    center:mapCenter,
+    zoom:15,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+//hudson bay
+var bay = new google.maps.LatLng(22.2040648,-159.5093429);
+//eyjafjallajokul
+
+
+var bayMarker = new google.maps.Marker({position: bay, icon:'Palmtrees.png'})
+bayMarker.setMap(map);
+
+
+var myTrip = [bay,PerosBanhos,Redwoods,sunset];
+var flightPath = new google.maps.Polyline({
+  path:myTrip,
+  strokeColor:"#0a6d0a",
+  strokeOpacity:0.8,
+  strokeWeight:2
+});
+flightPath.setMap(map);
+}
+n
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6lIJXDKA1kTYj1AluAdWFWkYvqqQsneQ&callback=myMap"></script>
+
+
+<div style="font-family: 'Handlee', serif;" id="top">
+<h2 style="font-family: 'Oswald', serif;"> Hanalei Bay</h2>
+<p> Hanalei bay is the largest bay on kaua'i.  It spans almost two miles.  I would like to visit this bay over the summer, 
+because the waves are not too big, but they are still big enough to go boogie bording.  One plus to it is because it is
+so large it doesn't seem too crowded.</p>
+</div>
+</body>
+</html>

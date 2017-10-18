@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/jpeg" href="leaguepic.jpeg" />
+<title>Dream Vacation</title>
+<link rel="stylesheet" type="text/css" href="vacation.css">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Handlee|Oswald">
+<style>
+#top {
+width: 75%;
+Height: 90%;
+margin-left: auto;
+margin-right:auto;
+margin-top: 25px;
+margin bottom: auto;
+background-color: #1f71f2;
+padding: 1px 20px;
+font-size: 20px;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="Bay.html">Hanalei Bay</a></li>
+  <li><a class="active" href="Peros.html">Peros Banhos</a></li>
+  <li><a href="Redwood.html">Balch Park</a></li>
+  <li><a href="Moorea.html">Moorea</a></li>
+  <li style="float:right"><a href="Bibliography.html">Bibliography</a></li>
+</ul>
+<h1>Dream Vacation</h1>
+
+<div id="googleMap" style="width:50%;height:400px;float:left"></div>
+<div id="pano" style="width:50%;height:400px;float:left"></div>
+<script>
+function myMap() {
+//latitude & longitude of where the map is centered
+//how zoomed in the map is
+//mapProp is a dictionary similar to how your css styles worked
+//west and south have negative values for latitude & longitude
+var mapCenter = new google.maps.LatLng(-5.3259009,71.8475367);
+var mapProp= {
+    center:mapCenter,
+    zoom:11,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+ var PerosBanhos = new google.maps.LatLng(-5.2433337,71.8247767); 
+ 	var panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('pano'), {
+        position: PerosBanhos,
+        pov: {
+          heading: 34,
+          pitch: 10
+        }
+      });
+  map.setStreetView(panorama);
+
+
+
+var PerosBanhosMarker = new google.maps.Marker({position: PerosBanhos})
+PerosBanhosMarker.setMap(map);
+
+}
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6lIJXDKA1kTYj1AluAdWFWkYvqqQsneQ&callback=myMap"></script>
+
+<br>
+<div style="margin-left:auto;margin-right:auto; margin-top: 400px;font-family: 'Handlee', serif;diplay:block;" id="top">
+<h2 style="font-family: 'Oswald', serif;"> Peros Banhos</h2>
+<p> Peros Banhos is an atoll in the indian ocean.  An atoll is a ring shaped coral 
+reef surrounding a lagoon that can have small islands.  Half of Peros Banhos is under a strict
+nature reserve, so you cannot enter it. </p>
+</div>
+</body>
+</html>

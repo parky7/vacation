@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="image/jpeg" href="leaguepic.jpeg" />
+<title>Dream Vacation</title>
+<link rel="stylesheet" type="text/css" href="vacation.css">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Handlee|Oswald">
+<style>
+#top {
+width: 75%;
+Height: 90%;
+margin-left: auto;
+margin-right:auto;
+margin-top: 25px;
+margin bottom: auto;
+background-color: #1f71f2;
+padding: 1px 20px;
+font-size: 20px;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="Bay.html">Hanalei Bay</a></li>
+  <li><a href="Peros.html">Peros Banhos</a></li>
+  <li><a href="Redwood.html">Balch Park</a></li>
+  <li><a class="active" href="Moorea.html">Moorea</a></li>
+  <li style="float:right"><a href="Bibliography.html">Bibliography</a></li>
+</ul>
+<h1>Dream Vacation</h1>
+
+
+<div id="googleMap" style="width:50%;height:400px;float:left"></div>
+<div id="pano" style="width:50%;height:400px;float:left"></div>
+<script>
+function myMap() {
+var mapCenter = new google.maps.LatLng(-17.571755,-149.8668449);
+var mapProp= {
+    center:mapCenter,
+    zoom:15,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  var sunset = new google.maps.LatLng(-17.571755,-149.8668449);
+  var panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('pano'), {
+        position: sunset,
+        pov: {
+          heading: 34,
+          pitch: 10
+        }
+      });
+  map.setStreetView(panorama);
+
+
+var sunsetMarker = new google.maps.Marker({position: sunset})
+sunsetMarker.setMap(map);
+
+}
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6lIJXDKA1kTYj1AluAdWFWkYvqqQsneQ&callback=myMap"></script>
+
+<br>
+<div style="margin-left:auto;margin-right:auto; margin-top: 400px;font-family: 'Handlee', serif;diplay:block;" id="top">
+<h2 style="font-family: 'Oswald', serif;"> Mo'orea</h2>
+<p> Mo'orea is located in French Polynesia.  It is 17 kilometres northwest of Tahiti.  It is a high Island which means
+that it is of volcanic origin.</p>
+</div>
+</body>
+</html>
